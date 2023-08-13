@@ -1,0 +1,190 @@
+<!--
+
+   Diseño web responsive con CSS (Curso VideotuBrain) 
+
+   Temas: 
+
+    Carpeta nº2 - Ejemplo práctico cómo crear un documento HTML responsive
+
+        -Video 01. Qué es viewport y cómo usarlo para lograr buenos resultados
+        -Video 02. Entender las herramientas mediaquery del diseño responsive
+        -Video 03. Usar una rejilla flexible mediante el uso adecuado de CSS
+        -Video 04. Imágenes responsivas dentro de un documento HTML con CSS
+        -Video 05. Texto responsivo integrado en el diseño y en el uso de CSS
+        -Video 06. Cómo trabajar con herramientas CSS al maquetar el documento
+
+    Carpeta nº3 - Maquetación del proyecto web realizado en HTML con CSS
+
+        -Video 01. Orden lógico de trabajo dentro del proyecto web responsive
+        -Video 02. Creación del HTML5 e implementación dentro del responsive
+        -Video 03. Creación del CSS3 e implementación en la web responsive
+        -Video 04. Las mediaquery y su implementación en la web responsive     
+
+-->
+
+<!--
+    ACLARACIONES:
+
+    1 - A modo de ayuda, podemos subir nuestro index o cualquier archivo a la una web para que nos tire tips o detecte cual es el error para poder modificarlo, algo similar a lo que haciamos con la web, codepen.io/. Esta pagina es https://validator.w3.org/ lo hacemos mediante la opcion "Validate by File Upload".
+
+    2 - Fue dificil poder hacer que quede el efecto redodneado en las imagenes ya que no sabia de antemano si la foto estaba recortada o no, o si era sin fondo etc. Por ello que para no complicarla la recorte de forma circular. De todas formas dejare un enlace Youtube donde explica como hacer un recorte circular en CSS (dura 40s) https://www.youtube.com/watch?v=0F-pNSCC8Ns
+
+    3 - Desde el emulador de dispositivos de Chrome; podremos ver que si ponemos cualquier modelo, nos aparecera un punto difuminado que tiene como funcion el TOUCH en el dispositivo. Pero hay algo malo en ello, ya que si por ejemplo queremos codificar y ver como queda la pagina de primera mano, no debemos de hacer touch para izq o derecha ya que nos mostrara la pagina completa y no como se vera en la pantalla del dispositivo final.
+
+    (4*) - Etiqueta <fieldset> - Se utiliza para agrupar elementos relacionados en un formulario, recuadra todos los elementos que integran un Formulario.
+
+--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | Home </title>
+    <!---<meta http-equiv="X-UA-Compatible" content="IE=edge"> Este meta por defecto lo desactivo.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-Condensed:400,300,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+    <div class="wrapper">
+
+            <header class="flex navbar">
+
+                    <nav class="flex item">
+                        <a href="">About</a>
+                        <a href="">Creation</a>
+                        <a href="">Portfolio</a>
+                        <a href="">Contact</a>
+                    </nav>
+
+                    <h1 class="item">B. Mauricio <span>PORTFOLIO</span> </h1>
+
+            </header>
+
+            <main class="content">
+
+                <!--Articulo nº 1-->
+
+                <article class="flex about">
+
+                    <section class="photo item order-2">
+                        <figure>
+                            <img src="images/mauri-photo.png" alt="">
+                        </figure>
+                    </section>
+
+                    <section class="description item order-3">
+
+                        <p class="subtitle"><span class="number">01.</span>about me</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> 
+                        
+                    </section >
+                        
+                    <section class="title item order-1">
+
+                        <h2>about</h2>
+
+                    </section>
+
+                </article>  
+
+
+                <!--Articulo nº 2-->
+
+                <article class="flex creation">
+
+                    <section class="title item order-1">
+
+                        <h2>creation</h2>
+
+                    </section>
+                    
+                    <section class="image item order-2">
+                        <figure>
+                            <img src="images/creation-photo.png" alt="">
+                        </figure>
+                    </section>
+
+                    <section class="description item order-3">
+
+                        <p class="subtitle"><span class="number">02.</span>creation</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> 
+                        
+                    </section >
+
+                </article>
+
+
+                <!--Articulo nº 3 VERIFICAR COMO TERMINA ESTA CLASE-->
+
+
+                <article class="flex portfolio">
+
+                    <section class="description item order-2">
+
+                        <p class="subtitle"><span class="number">03.</span>portfolio</p>
+                        <ul>
+                            <li>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+                            <a href="">www.miweb.com"</a>
+                            </li>
+
+                            <li>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+                                <a href="">www.miweb.com"</a>
+                            </li>
+
+                            <li>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+                                <a href="">www.miweb.com"</a>
+                            </li>
+
+                        </ul>
+                        
+                    </section >
+
+                    <section class="title item order-1">
+
+                        <h2>portfolio</h2>
+
+                    </section>
+                  
+
+                </article>
+
+                <!--Articulo nº 4 -->
+
+                <article class="flex contact"> 
+
+                    <section class="description item order-2">
+
+                        <p class="subtitle"><span class="number">04.</span> contact</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+
+                    </section>
+
+                    <section class="title item order-1">
+                        <h2>contact</h2>
+                    </section>
+
+                    <section class="form item order-3">
+                        <form> <!--(4*)-->
+                            <fieldset>
+                                <input type="email" name="email" placeholder="keep your email">
+                            </fieldset>
+                            <input type="submit" value="send me" class="btn">
+                        </form>
+                    </section>
+
+                </article>
+
+            </main>
+
+        </div>
+
+</body>
+</html>
+

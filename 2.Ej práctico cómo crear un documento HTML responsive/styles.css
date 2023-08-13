@@ -1,0 +1,228 @@
+/*
+
+   Diseño web responsive con CSS (Curso VideotuBrain) 
+
+<!--
+    ACLARACIONES:
+
+    1 - En esta seccion CSS, da varios puntos a tener en cuenta a la hora de crear nuestro archivo de estilos. Uno de ellos es crear esta "styles guide" donde podremos ver la jerarquia de estilos que vamos a ir aplicando, y organizarlo de tal manera que luego de mucho tiempo pasado aun asi podamos entender como estaba construido de manera mas fluida/facil.
+
+    2- Para el primer item RESET; que lo que hace la sentencia es quitar los valores por defecto de todos los elementos HTML yo la copie manualmente pero se pueda descargar desde esta pagina web: http://meyerweb.com/eric/tools/css/reset v2.0 | 20110126 License: none (public domain)
+     Aclaro que la pagina tiene otros contenidos interesantes de CSS como paleta de colores etc.
+*/ 
+
+
+
+/*STYLES GUIDE:
+0. RESET
+1. LAYOUT
+2- GENERIC ITEMS
+3. LIST
+4.FORM
+5.MEDIAQUERY
+----------------
+*/
+
+/* ------------- 0. RESET -------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2 ,h3 ,h4 ,h5 ,h6 , p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+{
+    margin:0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* ------------- HTML5 display-role reset for older browsers -------------*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+{
+    display: block;
+}
+
+
+body
+{
+    line-height: 1;
+}
+
+ol, ul
+{
+    list-style: none;
+}
+
+blockquote, q
+{
+    quotes: none; /* Codificacion desconocida: blockquote y quotes: none;*/
+}
+
+blockquote:before, blockquote:after, q:before, q:after
+{
+    content: '';
+    content: none;
+}
+
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* { box-sizing: border-box;}
+
+/* ------------- 1. LAYOUT -------------*/
+
+body {text-align: center; font: 14px/1 'Roboto'; background: #ebf2e3;}
+/* Codificacion desconocida: font: 14px/1 'Roboto' */
+
+.wrapper{width: 900px; margin: 30px auto; text-align: left;}
+
+.flex {display: flex;}
+
+.navbar {justify-content: space-between;}
+    .navbar nav {align-items: flex-end;}
+
+.content .item { display: flex; align-items: center; justify-content: center; flex: 1;
+background: #ccc; height: 350px; padding: 20px;}
+
+.content .about .item .title, .content .portfolio .item .title { justify-content: flex-start;}
+.content .creation .item .title { justify-content: flex-end;}
+
+
+/* SEGUIR COMPLETANDO POR ARRIBA */
+/* ------------- 2. GENERIC ITEMS -------------*/
+
+.navbar { margin-left: 10px;}
+    .navbar a { display: inline-block; margin-right: 1px; padding: 15px 15px 5px 5px; font-size: 16px; font-weight: 700; text-transform: uppercase; color: #000; text-decoration: none; font-family: 'Roboto Condensed';}
+    .navbar a:nth-child(1) {border-bottom: 4px solid #da0080;}
+    .navbar a:nth-child(2) {border-bottom: 4px solid #3d7402;}
+    .navbar a:nth-child(3) {border-bottom: 4px solid #008bda;}
+    .navbar a:nth-child(4) {border-bottom: 4px solid #da6200;}
+
+    .navbar h1 { font-weight: 500; font-size: 25px; text-align: right;}
+        .navbar span { display: block; font-size: 40px; font-weight: 700;}
+
+.title { font:300 55px 'Roboto Condensed'; text-transform: uppercase;}
+.description { font-size: 16px; font-weight: 300; line-height: 1.3;}
+.description .number { font-weight: 700; font-size: 30px; color: rgba(0,0,0,.3);}
+.description .subtitle { font-size: 24px; margin-bottom: 10px;}
+
+.about { color: #fff;}
+    .about .photo { background: #fff;}
+    .about .description {background: #aa042b; display: flex; flex-flow: column nowrap;; align-items: flex-start;}
+    .about .title {background: #da0033;}
+
+.creation { color: #333;}
+    .creation .image { background: #fff;}
+    .creation .description { background: #f2f2f2; display: flex; flex-flow:column nowrap; align-items:flex-start;}
+    .creation .title { background: #02745b; color: #fff;}
+
+.portfolio { color: #333;}
+    .portfolio .description { background: #f2f2f2; border: 20px solid #fff; display: flex; flex-flow: column nowrap; align-items: flex-start; flex: 1 65.7%;}
+    .portfolio .title { background: #3d0274; color: #fff; flex: 1 auto;}
+
+.contact { color: #fff;}
+    .contact .form { background: #ec4700;}
+    .contact .description { background: #ec4700; display: flex; flex-flow:column nowrap; align-items:flex-start;}
+    .contact .title { background: #b63700;}
+
+/* ------------- 3. LIST -------------*/
+
+.portfolio li { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddd;}
+.portfolio a { color: #008bda; text-decoration: none;}
+
+/* ------------- 4. FORM -------------*/
+
+.contact form { display: flex; flex-flow: column nowrap; align-items: flex-end;}
+.contact input { border: 0; background: #fff; display: block; width:200px; height: 30px; padding-left:10px; margin-bottom: 10px;}
+.contact [type=submit] { width: auto; height: auto; padding: 5px 15px; border:2px solid #fff; background: none; color: #fff; font-size: 16px;}
+
+/* ------------- 5. MEDIAQUERY (de Ejemplo)-----------*/
+
+/*Comentamos asi escrito para poder ejemplificar cada MQ, pero se codifica como se muestra al ultimo. Este MQ lo dejamos solo a modo de ejemplo de explicacion, perteneciente a la clase; pero usaremos otros para el practico definitivo.
+
+                    @media only screen   - Aca puede ser codificarse "only" o no.
+                    and (min-device-width:320px) -Min de ancho para dispositivos 
+
+                    and (max-device-width:480px) -Max de ancho para dispositivos
+
+                    and (-webkit-min-device-pixel-ratio:2) -Min de pizel ratio, esta medica fue creada para dispositivos de Retina, donde cada dispositivo tiene desde 1 a n pixel ratios.
+
+                    and (orientation: portrait) -Orientacion de rotacion (horizontal/vertical)
+
+                    and (min-resolution: 192dpi) 
+                    { ESTILO }
+
+                    osea:
+
+ @media only screen and (min-device-width:320px) and (max-device-width:480px) and (-webkit-min-device-pixel-ratio:2) and (orientation: portrait) and (min-resolution: 192dpi) {ESTILO}
+
+*/
+
+/* ------------- 5. MEDIAQUERY (de Ejemplo)-----------*/
+/*Crearemos 3 BREAKING POINTS; para nuestro proyecto*/
+
+@media screen and (max-width:780px)  /*Breakpoint para Desktop*/
+{
+    .wrapper { width: 100%;}
+
+    .order-1 { order: 1;}
+    .order-2 { order: 2;}
+    .order-3 { order: 3;}
+
+    .title {font-size: 3rem;}
+    .description { font-size: 1rem;}
+    .description .number { font-size: 2rem;}
+    .description .subtitle { font-size: 1.8rem;}
+
+
+   /*No esta explicado porque puso esto pero lo comento, lo dejo escrito:
+   
+   .about.flex {flex-flow: column;}
+   .about .title { height: auto; padding-top: 40px; padding-bottom: 40px;}
+
+   */ 
+}
+
+@media screen and (max-width:600px) /*Breakpoint para Tablet*/
+{
+
+}
+
+@media screen and (max-width:440px) /*Breakpoint para Smartphone*/
+{   
+    .wrapper { width: 100%;}
+    .order-1 { order: 1;}
+    .order-2 { order: 2;}
+    .order-3 { order: 3;}
+
+    .about.flex, .creation.flex, .portfolio.flex, .contact.flex  {flex-flow: column; position: relative;}
+    .content .about .item.title, .content .creation .item.title, .content .portfolio .item.title, .content .contact .item.title { height: auto; padding-top: 20px; padding-bottom: 40px; justify-content: flex-start;}
+
+    .about .photo, .creation .image { position: absolute; right: 15px; top:20%; background: transparent; width: 150px;}
+    .about figure, .creation figure {width: 100%; height:100%;}
+    .about .photo img, .creation .image img { max-width: 100%; width: 100%; height: auto;}
+
+    /*
+    .creation figure { display: flex; justify-content:center; background:#fff; border-radius:50%;}
+    .creation .image img { width:60px; }
+    */
+    .about .description { height: auto; padding-top: 40px; padding-bottom: 60px;}
+
+}
+
+
+

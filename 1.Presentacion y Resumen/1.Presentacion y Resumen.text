@@ -1,0 +1,149 @@
+<!--
+
+   Diseño web responsive con CSS (Curso VideotuBrain) - Carpeta nº1 
+
+   Temas: 
+    
+    -Video 00: Intro - Diseño web responsive con CSS
+    -Video 01. La importancia del diseño en el responsive con CSS
+    -Video 02. Diseño líquido versus diseño flexible en CSS
+    -Video 03. 3. Por dónde empezar en cuanto al diseño del HTML
+
+
+   -----------------------------------------------------------------------------------
+
+
+    ACLARACION: En esta carpeta se comenta la importancia del uso de general una Web "Resposive", apra que pueda visualizarse y funcionar de manera optima en multiples plataformas y dispositivos/navegadores.
+
+                -Haremos alguna pequeñas aclaraciones de cada uno de los videos aca, adjuntaremos imagenes de referencia (done crearemos una carpetas que alojara cada captura que lo ejemplifique y explique) para cada caso, pero lo practico se comenzara a realizar en las siguientes 2 clases:
+
+                                    2. Ejemplo práctico cómo crear un documento HTML responsive
+                                    3. Maquetación del proyecto web realizado en HTML con CSS
+
+-->
+
+
+
+01. La importancia del diseño en el responsive con CSS
+-------------------------------------------------------
+
+El diseño en el responsive:
+
+-Distintos patrones de diseño.
+-El sistema de columnas
+-Breaking points
+-Pixel vs em vs. rem
+
+        ---
+
+Patrones de diseño: (El ejemplo de cada uno esta en la carpeta img/ de nuestro archivo 1.Presentacion y Resumen)
+
+-En la imagen veremos los distintos tipos de dispositivos, comenzando por la posicion derecha (img/)
+
+1º Para Desktop (Escritorio).
+2º Portatil o Netbook/Notebook
+3º Ipad/Tablet
+4 Movil/Smartphone
+
+-Mostly Fluid: Este es el mas normal y mas usado. 
+
+-Column Drop: Este patron de diseño es basado en columnas. Aplica tambien a los 4 tipos de dispositivos.
+
+-Layout Shifter: Este patron de diseño es basado en columnas tambien pero dispuesto de otra manera a diferencia del anterio. Aplica tambien a los 4 tipos de dispositivos.
+
+-Off Canvas: Este patron es el mas basico, lo que hace es dejar columnas dentro o fuera dependiento el tamaño del dispositivo. Se usa mediante (animaciones) poder viajar hacia las columnas laterales para poder visualizar completa la pagina ya que solo puede verse una columna a la vez en Smartphones por ejemplo.
+
+
+        ---
+
+
+
+02. Diseño líquido versus diseño flexible en CSS
+------------------------------------------------
+
+-En CSS podemos expresar las medicas varios tipos, pero veremos 4 principales y que mas usaremos: pixeles px, em, rem y porcentajes %.
+-En el video da ejemplos sobre cada uno aplicandolo en algunas clases de divs, pero eso como lo ahremos en el practico, aca dejaremos la informacion general de cada caso, menos pixel yque ya conocemos.
+
+        ---
+
+Unidades de medida recomendadas:
+
+
+Porcentajes:
+La unidad de medida porcentual es la que se usa por defecto en los elementos HTML en donde de manera predeterminada cada elemento de bloque usa un ancho del 100%, es por eso que cuando achicamos la ventana del navegador con una página que no tenga estilos, la página se adapta, ya que siempre usará el ancho total visible.
+
+Pero nosotros podemos utilizar  los porcentajes de una manera más avanzada tratando de generar layouts mas complejos.
+
+Supongamos, por ejemplo, que tienes un div que contiene todos los elementos de la página y, según el diseño, este elemento debiera medir 1200 pixeles. En lugar de caer en la tentación de simplemente usar esa medida en pixeles, te recomendaría usar una medida en porcentajes, en donde el máximo ancho del elemento sean esos 1200px:
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 1200px;
+}
+
+Con estas 3 propiedades de CSS conseguimos que a) El elemento se centre en la página, b) tenga un ancho del 90% de la ventana y c) su ancho nunca sea superior a 1200 pixeles.
+
+Es  decir, hemos conseguido que el elemento con la clase container sea responsive sin la necesidad siquiera de escribir un media query.
+
+El uso de los porcentajes también lo podemos llevar a elementos interiores del layout, en donde, por ejemplo, podemos asignar a la columna principal de contenido y a la barra lateral unas medidas de ancho del 70% y el 30% respectivamente, haciendo que sean completamente adaptables al tamaño de su elemento contenedor.
+
+
+
+Em:
+Un em, es básicamente el tamaño de una letra «M» (bien podría ser cualquier otra letra) del elemento al cual se esté aplicando esta medida. Es decir, si en elemento tiene aplicado un tamaño de  fuente de 16 pixeles, entonces 1 em será igual a 16px (los navegadores de manera predeterminada definen un font-size de 16px al elemento HTML, por lo tanto, por defecto 1em es igual a 16px).
+
+La unidad em es escalable y siempre depende de su elemento padre. Por ejemplo, si el elemento body tiene un tamaño de fuente de 16px y un elemento hijo tiene una fuente con tamaño 1.3em, este texto se mostrará de un tamaño un 30% más grande que el del body (20.8px), mientras que si dentro de ese elemento tenemos otro hijo con un font-size de 1.3 em, el tamaño de fuente de este objeto sería un 30% más grande que el tamaño de su padre (27.04px).
+
+Body = 1em (16px)
+Hijo = 1.3em (16px x 1.3 = 20.8px)
+Nieto = 1.3em (20.8px x 1.3 = 27.04px)
+
+Es recomendable usar la unidad de medida em para definir los tamaños de fuente, los altos de línea y también para elementos de diseño que no requieran ser muy exactos o que requieran una medida que tenga relación con el tamaño del texto, como por ejemplo el margen entre párrafos, el relleno interior de los blockquotes, etc.
+
+También se puede aplicar a elementos generales del layout aunque no es muy recomendable, ya que si eventualmente se cambia el tamaño de fuente de uno de ellos, se podría estropear el diseño.
+
+
+
+Rem:
+La unidad de medida rem es muy similar a em, con la única diferencia de que no es escalable, esto quiere decir que no depende del elemento padre, sino del elemento raíz del documento, el elemento HTML. Rem significa «Root Em«, o sea, es un em basado en la raíz.
+
+Esto significa que si el elemento HTML tiene un tamaño de fuente de 16px (como es por defecto), entonces 1rem, sería igual a 16px, y si queremos aplicar un tamaño basado en rem a cualquier elemento de la página, no importará cual sea el tamaño de fuente que tenga asociado ese elemento, ya que 1 rem siempre será igual a 16 pixeles a no ser que se modifique el elemento raíz.
+
+Usar rem nos permite cierta estructura para poder definir ciertas partes del layout, pero al mismo tiempo nos entrega cierta escalabilidad para respetar las configuraciones de cada usuario.
+
+Esta unidad de medida es recomendable para aplicar a elementos del layout que requieran medidas fijas y eventualmente también para textos que deseemos que tengan un tamaño de fuente que no dependa de su elemento padre.
+
+Los rem, son una unidad muy interesante también para definir los media quieries de CSS. Dale un vistazo al código fuente de esta misma página y verás que los rem, son la unidad más utilizada en diferentes instancias.
+
+Si quisiéramos refinar el ejemplo anterior para no usar pixeles deberíamos usar algo como lo siguiente:
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 75rem;
+}
+Para poder convertir una medida de pixeles a rem solo tienes que multiplicar el tamaño que quieres obtener por el número 0.0625, eso te dará el tamaño que debes usar en rem. Así es como he llegado a definir que 75rem es igual a 1200px:
+
+75rem = 1200px x 0.0625
+
+Si te asusta la matemática, no te preocupes, puedes buscar alguna calculadora en la web que te permita realizar este calculo. Dejo este linak de una apra poder usar https://nekocalc.com/es/px-a-rem-conversor
+
+En síntesis
+Si buscas en internet sobre unidades de medida en CSS verás que hay personas que recomiendan usar únicamente rem, hay otros que recomiendan solo usar em y creo que debe haber aquellos que también proponen usar únicamente medidas porcentuales.
+
+En lo que sí estamos de acuerdo, es en que el uso de pixeles como unidad de medida debiera desaparecer o por lo menos reducirse tanto como sea posible.
+
+
+        ---
+
+
+ 3. Por dónde empezar en cuanto al diseño del HTML
+ -------------------------------------------------
+
+ -Lo que explica es que el diseñador nos pasara las imagenes a nostros programadores indicando como es que se vera la web, en una imagen diseñada para cada uno de los dispositivos. Veremos luego como se recortan o no, para adaptarse segun corresponda (adjunto ej en folder img/web).
+
+ -Indica que podremos ver la imagen para trabajar con el diseño de la pagina ya impreso en papel, o en el programa de diseño (Ej Adobe/Photoshop etc) para asi poder identificar cuales son los elementos que quitamos o se modifican dependiendo de cada tamaño de pantalla.
+
+ 
+
